@@ -1,4 +1,9 @@
 @extends('layouts.app')
+@section('header_menu')
+<x-hmenu href="{{route('home')}}">Home</x-hmenu>
+<x-hmenu href="{{route('home')}}#about">About Me</x-hmenu>
+<x-hmenu href="#contact">Contact</x-hmenu>
+@endsection
 @section('content')
 <main class="flex-grow pt-32 pb-20 px-6">
     <div class="container mx-auto">

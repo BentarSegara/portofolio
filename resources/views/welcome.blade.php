@@ -1,4 +1,10 @@
 @extends('layouts.app')
+@section('header_menu')
+<x-hmenu href="#home">Home</x-hmenu>
+<x-hmenu href="#about">About Me</x-hmenu>
+<x-hmenu href="#projects">Projects</x-hmenu>
+<x-hmenu href="#contact">Contact</x-hmenu>
+@endsection
 @section('content')
 <!-- 1. HOME SECTION -->
 <section id="home" class="min-h-screen flex flex-col justify-center items-center relative px-4 pt-16">
@@ -96,10 +102,10 @@
                     <i class="fa-solid fa-desktop text-5xl text-slate-700 group-hover:scale-110 transition-transform duration-500"></i>
                     <!-- Overlay -->
                     <div class="absolute inset-0 bg-slate-900/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                        <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-white hover:text-slate-900 transition-colors" title="View Code">
+                        <a href="https://github.com/BentarSegara" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-white hover:text-slate-900 transition-colors" title="View Code">
                             <i class="fa-brands fa-github"></i>
                         </a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-white hover:text-slate-900 transition-colors" title="Live Demo">
+                        <a href="{{route('project_detail')}}" class="w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center hover:bg-white hover:text-slate-900 transition-colors" title="Live Demo">
                             <i class="fa-solid fa-arrow-up-right-from-square"></i>
                         </a>
                     </div>

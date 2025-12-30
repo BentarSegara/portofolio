@@ -105,22 +105,7 @@
 
             <!-- Desktop Menu -->
             <nav class="hidden md:flex space-x-8">
-                <a href="#home" class="text-sm font-medium hover:text-white transition-colors relative group">
-                    Home
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-slate-400 transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#about" class="text-sm font-medium hover:text-white transition-colors relative group">
-                    About Me
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-slate-400 transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#projects" class="text-sm font-medium hover:text-white transition-colors relative group">
-                    Projects
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-slate-400 transition-all group-hover:w-full"></span>
-                </a>
-                <a href="#contact" class="text-sm font-medium hover:text-white transition-colors relative group">
-                    Contact
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-slate-400 transition-all group-hover:w-full"></span>
-                </a>
+                @yield('header_menu')
             </nav>
 
             <!-- Mobile Menu Btn -->
@@ -156,10 +141,10 @@
                 </div>
 
                 <div class="flex space-x-6">
-                    <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-white hover:text-slate-900 transition-all duration-300">
+                    <a href="https://www.linkedin.com/in/bentar-segara-buana-95051a28b/" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-white hover:text-slate-900 transition-all duration-300">
                         <i class="fa-brands fa-linkedin-in text-xl"></i>
                     </a>
-                    <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-white hover:text-slate-900 transition-all duration-300">
+                    <a href="https://github.com/BentarSegara" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-white hover:text-slate-900 transition-all duration-300">
                         <i class="fa-brands fa-github text-xl"></i>
                     </a>
                     <a href="#" class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center text-slate-400 hover:bg-white hover:text-slate-900 transition-all duration-300">

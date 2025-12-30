@@ -1,4 +1,9 @@
 @extends('layouts.app')
+@section('header_menu')
+<x-hmenu href="{{route('home')}}">Home</x-hmenu>
+<x-hmenu href="{{route('home')}}#about">About Me</x-hmenu>
+<x-hmenu href="#contact">Contact</x-hmenu>
+@endsection
 @section('content')
 <main class="pt-28 pb-16 px-6">
     <div class="container mx-auto max-w-5xl">
@@ -6,9 +11,9 @@
         <!-- Breadcrumb -->
         <nav class="flex text-sm text-slate-500 mb-8" aria-label="Breadcrumb">
             <ol class="flex items-center space-x-2">
-                <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                <li><a href="{{route('home')}}" class="hover:text-white transition-colors">Home</a></li>
                 <li><i class="fa-solid fa-chevron-right text-xs"></i></li>
-                <li><a href="index.html#projects" class="hover:text-white transition-colors">Projects</a></li>
+                <li><a href="{{route('project')}}" class="hover:text-white transition-colors">Projects</a></li>
                 <li><i class="fa-solid fa-chevron-right text-xs"></i></li>
                 <li class="text-slate-300" aria-current="page">E-Commerce Dashboard</li>
             </ol>
@@ -47,28 +52,6 @@
                         Saya merancang ulang tata letak informasi, menerapkan tema gelap untuk mengurangi kelelahan mata, dan mengoptimalkan performa pemuatan data menggunakan teknik lazy-loading.
                     </p>
                 </section>
-
-                <!-- Problem & Solution -->
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="glass-card p-6 rounded-xl">
-                        <div class="w-10 h-10 bg-red-500/10 rounded-full flex items-center justify-center text-red-400 mb-4">
-                            <i class="fa-solid fa-triangle-exclamation"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Masalah</h3>
-                        <p class="text-sm text-slate-400">
-                            Waktu loading data inventaris mencapai 5 detik dan navigasi menu yang tidak intuitif menyebabkan error input user.
-                        </p>
-                    </div>
-                    <div class="glass-card p-6 rounded-xl">
-                        <div class="w-10 h-10 bg-emerald-500/10 rounded-full flex items-center justify-center text-emerald-400 mb-4">
-                            <i class="fa-solid fa-check"></i>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Solusi</h3>
-                        <p class="text-sm text-slate-400">
-                            Implementasi caching server-side dan penyederhanaan arsitektur informasi mengurangi waktu loading menjadi < 1 detik.
-                                </p>
-                    </div>
-                </div>
 
                 <!-- Gallery / Screenshots -->
                 <section>
@@ -130,10 +113,7 @@
 
                     <!-- Action Buttons -->
                     <div class="mt-8 space-y-3">
-                        <a href="#" class="block w-full py-3 bg-white text-slate-900 font-bold text-center rounded-lg hover:bg-slate-200 transition-colors">
-                            <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> Kunjungi Live Site
-                        </a>
-                        <a href="#" class="block w-full py-3 bg-transparent border border-slate-600 text-white font-medium text-center rounded-lg hover:bg-slate-800 transition-colors">
+                        <a href="https://github.com/BentarSegara" class="block w-full py-3 bg-transparent border border-slate-600 text-white font-medium text-center rounded-lg hover:bg-slate-800 transition-colors">
                             <i class="fa-brands fa-github mr-2"></i> Lihat Repository
                         </a>
                     </div>
