@@ -13,12 +13,10 @@ return new class extends Migration
     {
         Schema::create('project_images', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('folder_id');
             $table->unsignedBigInteger('project_id');
-            $table->string('name');
+            $table->string('image_path');
             $table->boolean('is_primary')->default(false);
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
-            $table->foreign('folder_id')->references('id')->on('project_image_folders')->onDelete('cascade');
             $table->timestamps();
         });
     }

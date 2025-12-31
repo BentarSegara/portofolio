@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
+use App\Models\ProjectImage;
+use App\Models\TypeProject;
 use Illuminate\Http\Request;
 
 class ProjectController extends Controller
@@ -11,54 +14,38 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        return view('project.index');
+        $type_projects = TypeProject::all();
+        $projects = Project::with([
+            'projectImages' => function ($query) {
+                $query->where('is_primary', true);
+            },
+            'projectTechStacks' => function ($query) {
+                $query->with('techStack');
+            },
+            'projectTypes' => function ($query) {
+                $query->with('typeProject');
+            }
+        ])->get();
+
+        return view('project.index', compact('projects', 'type_projects'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function show($id)
     {
-        //
-    }
+        $projects = Project::with([
+            'projectImages',
+            'projectTechStacks' => function ($query) {
+                $query->with('techStack');
+            },
+        ])->where('id', $id)->first();
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $prev_project = Project::select('id', 'name')->where('id', '<', $id)->first();
+        $next_project = Project::select('id', 'name')->where('id', '>', $id)->first();
 
-    /**
-     * Display the specified resource.
-     */
-    public function show()
-    {
-        return view('project.show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        $project_images = collect($projects->projectImages)->toArray();
+        $bannerImages = array_filter($project_images, function ($image) {
+            return $image['is_primary'] == true;
+        })[0];
+        return view('project.show', compact('projects', 'project_images', 'bannerImages', 'prev_project', 'next_project'));
     }
 }

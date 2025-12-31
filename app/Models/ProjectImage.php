@@ -10,9 +10,4 @@ class ProjectImage extends Model
     {
         return $this->belongsTo(Project::class);
     }
-
-    public function projectImageFolder()
-    {
-        return $this->belongsTo(ProjectImageFolder::class);
-    }
 }

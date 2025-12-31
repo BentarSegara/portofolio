@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('name');
             $table->text('short_desc');
             $table->text('desc1');
@@ -21,6 +22,8 @@ return new class extends Migration
             $table->string('client');
             $table->string('github');
             $table->year('year');
+            $table->boolean('is_choiced')->default(false);
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
