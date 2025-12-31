@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('type_id');
             $table->string('name');
-            $table->string('description');
-            $table->string('summary');
+            $table->text('short_desc');
+            $table->text('desc1');
+            $table->text('desc2');
+            $table->string('role');
             $table->string('client');
-            $table->year('created_at');
-            $table->string('tech_stack');
-            $table->foreign('type_id')->references('id')->on('types')->onDelete('restrict');
+            $table->string('github');
+            $table->year('year');
+            $table->timestamps();
         });
     }
 

@@ -11,11 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('screens', function (Blueprint $table) {
+        Schema::create('project_images', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('folder_id');
             $table->unsignedBigInteger('project_id');
-            $table->string('path');
+            $table->string('name');
+            $table->boolean('is_primary')->default(false);
             $table->foreign('project_id')->references('id')->on('projects')->onDelete('cascade');
+            $table->foreign('folder_id')->references('id')->on('project_image_folders')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
@@ -24,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('screens');
+        Schema::dropIfExists('project_images');
     }
 };
