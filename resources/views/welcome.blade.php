@@ -5,6 +5,12 @@
 <x-hmenu href="#projects">Projects</x-hmenu>
 <x-hmenu href="#contact">Contact</x-hmenu>
 @endsection
+@section('header_menu_dropdown')
+<x-hmenu-dropdown href="#home">Home</x-hmenu-dropdown>
+<x-hmenu-dropdown href="#about">About Me</x-hmenu-dropdown>
+<x-hmenu-dropdown href="#projects">Projects</x-hmenu-dropdown>
+<x-hmenu-dropdown href="#contact">Contact</x-hmenu-dropdown>
+@endsection
 @section('content')
 <!-- 1. HOME SECTION -->
 <section id="home" class="min-h-screen flex flex-col justify-center items-center relative px-4 pt-16">
@@ -42,9 +48,9 @@
 
             <!-- Left: Image Placeholder / Visual -->
             <div class="w-full md:w-1/2 flex justify-center">
-                <div class="relative w-64 h-64 md:w-80 md:h-80">
-                    <div class="absolute h-96 inset-0 border-2 border-slate-700 rounded-2xl transform rotate-6 transition-transform hover:rotate-0 duration-500"></div>
-                    <div class="absolute h-96 inset-0 bg-slate-800 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xl glass-card">
+                <div class="relative w-64 h-80 md:w-80 md:h-96">
+                    <div class="absolute inset-0 border-2 border-slate-700 rounded-2xl transform rotate-6 transition-transform hover:rotate-0 duration-500"></div>
+                    <div class="absolute inset-0 bg-slate-800 rounded-2xl flex items-center justify-center overflow-hidden shadow-2xl glass-card">
                         <img src="{{asset($userInfo->photo)}}" class="w-full h-full object-fill" alt="Segaara">
                     </div>
                 </div>

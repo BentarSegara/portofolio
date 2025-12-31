@@ -117,10 +117,7 @@
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="hidden md:hidden bg-slate-900 border-t border-slate-800 absolute w-full shadow-xl">
             <div class="flex flex-col p-4 space-y-4 text-center">
-                <a href="#home" class="block hover:text-white transition-colors py-2">Home</a>
-                <a href="#about" class="block hover:text-white transition-colors py-2">About Me</a>
-                <a href="#projects" class="block hover:text-white transition-colors py-2">Projects</a>
-                <a href="#contact" class="block hover:text-white transition-colors py-2">Contact</a>
+                @yield('header_menu_dropdown')
             </div>
         </div>
     </header>

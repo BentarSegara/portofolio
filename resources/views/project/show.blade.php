@@ -4,6 +4,11 @@
 <x-hmenu href="{{route('home')}}#about">About Me</x-hmenu>
 <x-hmenu href="#contact">Contact</x-hmenu>
 @endsection
+@section('header_menu_dropdown')
+<x-hmenu-dropdown href="{{route('home')}}">Home</x-hmenu-dropdown>
+<x-hmenu-dropdown href="{{route('home')}}#about">About Me</x-hmenu-dropdown>
+<x-hmenu-dropdown href="#contact">Contact</x-hmenu-dropdown>
+@endsection
 @section('content')
 <main class="pt-28 pb-16 px-6">
     <div class="container mx-auto max-w-5xl">
